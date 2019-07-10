@@ -20,6 +20,9 @@
         <name>Wellens IT</name>
     </organization>
 
+    <modules>
+        <module>take5-api</module>
+    </modules>
 
     <properties>
     </properties>
