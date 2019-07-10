@@ -6,30 +6,41 @@ import be.wellens.it.take5.cards.requests.DealRequest;
 import be.wellens.it.take5.cards.requests.ShuffleRequest;
 import be.wellens.it.take5.cards.responses.DealResponse;
 import be.wellens.it.take5.cards.service.CheckForEmptyService;
+import be.wellens.it.take5.cards.service.CreateNewDeckService;
 import be.wellens.it.take5.cards.service.DealService;
 import be.wellens.it.take5.cards.service.ShuffleService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
-@RestController("cards")
+@RestController
+@RequestMapping("cards")
 @Validated
 public class CardsController {
 
+    private final CreateNewDeckService createNewDeckService;
     private final DealService dealService;
     private final ShuffleService shuffleService;
     private final CheckForEmptyService checkForEmptyService;
 
-    public CardsController(DealService dealService,
+    public CardsController(CreateNewDeckService createNewDeckService,
+                           DealService dealService,
                            ShuffleService shuffleService,
                            CheckForEmptyService checkForEmptyService) {
+        this.createNewDeckService = createNewDeckService;
         this.dealService = dealService;
         this.shuffleService = shuffleService;
         this.checkForEmptyService = checkForEmptyService;
+    }
+
+    @GetMapping(value = "new")
+    public Deck getNewDeck() {
+        return createNewDeckService.createNew();
     }
 
     @PostMapping(value = "deal")
