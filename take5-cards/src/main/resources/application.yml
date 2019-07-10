@@ -1,0 +1,53 @@
+responderId: cards-service
+instanceId: cards-service
+version: 1
+
+project:
+  version: @project.version@
+  artifactId: @project.artifactId@
+
+spring:
+  main:
+    banner-mode: "off"
+  application:
+    name: cards-service
+  devtools:
+    restart:
+      log-condition-evaluation-delta: false
+
+server:
+  port: 9002
+  address: 0.0.0.0
+  compression:
+    enabled: true
+  servlet:
+    application-display-name: cards-service
+    session:
+      timeout: 1800s
+      cookie:
+        name: SESSION
+
+management:
+  endpoint:
+    health:
+      show-details: always
+      enabled: true
+      cache:
+        time-to-live: 60s
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  health:
+    diskspace:
+      enabled: true
+      threshold: 10
+  endpoints:
+    enabled-by-default:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    export:
+      prometheus:
+        enabled: true

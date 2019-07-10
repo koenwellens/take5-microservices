@@ -22,11 +22,34 @@
 
     <modules>
         <module>take5-api</module>
+        <module>take5-cards</module>
     </modules>
 
     <properties>
+        <lombok.version>1.18.8</lombok.version>
+        <validation-api.version>2.0.1.Final</validation-api.version>
     </properties>
 
-    <dependencies>
-    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${validation-api.version}</version>
+            </dependency>
+
+            <!-- Project modules-->
+            <dependency>
+                <groupId>be.wellens.it.take5</groupId>
+                <artifactId>api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

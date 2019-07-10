@@ -1,18 +1,16 @@
-package be.wellens.it.take5.api;
+package be.wellens.it.take5.cards.requests;
 
+import be.wellens.it.take5.api.Card;
 import lombok.AllArgsConstructor;
-import lombok.ToString;
 import lombok.Value;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @AllArgsConstructor
-@ToString
 @Value
-public class Deck {
+public class CheckEmptyRequest {
 
     @NotNull
-    private List<@NotNull @Valid Card> cards;
+    private List<@NotNull Card> cards;
 }
