@@ -23,7 +23,7 @@ public class CreateNewDeckService {
     }
 
     public Deck createNew() {
-        List<Card> cards = IntStream.range(FIRST_CARD, LAST_CARD)
+        List<Card> cards = IntStream.rangeClosed(FIRST_CARD, LAST_CARD)
                 .mapToObj(this::mapNumberToCard)
                 .collect(toList());
 

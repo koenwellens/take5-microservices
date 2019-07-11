@@ -49,7 +49,7 @@ public class CardsController {
     }
 
     @PostMapping(value = "shuffle")
-    public Deck shuffle(@RequestBody @Valid ShuffleRequest shuffleRequest) {
+    public Deck shuffle(@RequestBody @Valid Deck shuffleRequest) {
         return shuffleService.shuffle(shuffleRequest.getCards());
     }
 
