@@ -1,11 +1,8 @@
 package be.wellens.it.take5.cards.controller;
 
 import be.wellens.it.take5.api.Deck;
-import be.wellens.it.take5.cards.requests.CheckEmptyRequest;
 import be.wellens.it.take5.cards.requests.DealRequest;
-import be.wellens.it.take5.cards.requests.ShuffleRequest;
 import be.wellens.it.take5.cards.responses.DealResponse;
-import be.wellens.it.take5.cards.service.CheckForEmptyService;
 import be.wellens.it.take5.cards.service.CreateNewDeckService;
 import be.wellens.it.take5.cards.service.DealService;
 import be.wellens.it.take5.cards.service.ShuffleService;
@@ -26,16 +23,13 @@ public class CardsController {
     private final CreateNewDeckService createNewDeckService;
     private final DealService dealService;
     private final ShuffleService shuffleService;
-    private final CheckForEmptyService checkForEmptyService;
 
     public CardsController(CreateNewDeckService createNewDeckService,
                            DealService dealService,
-                           ShuffleService shuffleService,
-                           CheckForEmptyService checkForEmptyService) {
+                           ShuffleService shuffleService) {
         this.createNewDeckService = createNewDeckService;
         this.dealService = dealService;
         this.shuffleService = shuffleService;
-        this.checkForEmptyService = checkForEmptyService;
     }
 
     @GetMapping(value = "new")
@@ -49,12 +43,7 @@ public class CardsController {
     }
 
     @PostMapping(value = "shuffle")
-    public Deck shuffle(@RequestBody @Valid Deck shuffleRequest) {
-        return shuffleService.shuffle(shuffleRequest.getCards());
-    }
-
-    @GetMapping(value = "empty")
-    public boolean isEmpty(@RequestBody @Valid CheckEmptyRequest checkEmptyRequest) {
-        return checkForEmptyService.isEmpty(checkEmptyRequest.getCards());
+    public Deck shuffle(@RequestBody @Valid Deck deck) {
+        return shuffleService.shuffle(deck.getCards());
     }
 }
