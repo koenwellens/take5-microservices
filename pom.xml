@@ -23,6 +23,8 @@
     <modules>
         <module>take5-api</module>
         <module>take5-cards</module>
+        <module>take5-score</module>
+        <module>take5-table</module>
     </modules>
 
     <properties>
