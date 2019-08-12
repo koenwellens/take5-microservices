@@ -7,6 +7,7 @@ import lombok.Value;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -16,11 +17,11 @@ import java.util.List;
 public class Table {
 
     @NotNull
-    private List<@NotNull @Valid Card> row1;
+    private List<@NotNull @Valid Card> row1 = new ArrayList<>();
     @NotNull
-    private List<@NotNull @Valid Card> row2;
+    private List<@NotNull @Valid Card> row2 = new ArrayList<>();
     @NotNull
-    private List<@NotNull @Valid Card> row3;
+    private List<@NotNull @Valid Card> row3 = new ArrayList<>();
     @NotNull
-    private List<@NotNull @Valid Card> row4;
+    private List<@NotNull @Valid Card> row4 = new ArrayList<>();
 }

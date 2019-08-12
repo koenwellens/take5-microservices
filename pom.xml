@@ -25,11 +25,13 @@
         <module>take5-cards</module>
         <module>take5-score</module>
         <module>take5-table</module>
+        <module>take5-game</module>
     </modules>
 
     <properties>
         <lombok.version>1.18.8</lombok.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
+        <commons-collections4.version>4.2</commons-collections4.version>
     </properties>
 
     <dependencyManagement>
@@ -44,6 +46,11 @@
                 <groupId>javax.validation</groupId>
                 <artifactId>validation-api</artifactId>
                 <version>${validation-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons-collections4.version}</version>
             </dependency>
 
             <!-- Project modules-->

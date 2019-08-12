@@ -8,11 +8,11 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>table</artifactId>
+    <artifactId>game</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>take5-table</name>
+    <name>take5-game</name>
 
     <dependencies>
         <dependency>
@@ -85,7 +85,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <fork>true</fork>
-                    <mainClass>be.wellens.it.take5.table.TableApplication</mainClass>
+                    <mainClass>be.wellens.it.take5.table.GameApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
